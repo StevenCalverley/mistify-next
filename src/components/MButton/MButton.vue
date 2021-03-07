@@ -1,8 +1,8 @@
 <template>
   <button
     type="button"
-    class="inline-flex items-center font-medium border border-transparent rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2"
-    :class="[sizeClasses, typeClasses]"
+    class="inline-flex items-center font-medium border border-transparent shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2"
+    :class="[sizeClasses, typeClasses, roundedClasses]"
     @click="$emit('click')"
   >
     <slot />
@@ -28,6 +28,11 @@ export default defineComponent({
       validator: (type: string) =>
         ['primary', 'secondary', 'white'].includes(type),
     },
+    rounded: {
+      type: String,
+      default: 'rounded',
+      validator: (variant: string) => ['rounded', 'full'].includes(variant),
+    },
   },
   computed: {
     sizeClasses(): string {
@@ -52,6 +57,14 @@ export default defineComponent({
           return 'border-gray-300 text-gray-700 bg-white hover:bg-gray-50 focus:ring-blue-500';
         default:
           return 'text-white bg-blue-600 hover:bg-blue-700 focus:ring-blue-500';
+      }
+    },
+    roundedClasses(): string {
+      switch (this.rounded) {
+        case 'full':
+          return 'rounded-full';
+        default:
+          return 'rounded-md';
       }
     },
   },
