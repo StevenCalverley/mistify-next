@@ -52,11 +52,11 @@ export default defineComponent({
     typeClasses(): string {
       switch (this.type) {
         case 'secondary':
-          return 'text-blue-700 bg-blue-100 hover:bg-blue-200 focus:ring-blue-500';
+          return 'text-secondary-700 bg-secondary-100 hover:bg-secondary-200 focus:ring-secondary-500';
         case 'white':
-          return 'border-gray-300 text-gray-700 bg-white hover:bg-gray-50 focus:ring-blue-500';
+          return 'border-gray-300 text-gray-700 bg-white hover:bg-gray-50 focus:ring-primary-500';
         default:
-          return 'text-white bg-blue-600 hover:bg-blue-700 focus:ring-blue-500';
+          return 'text-primary-50 bg-primary-500 hover:bg-primary-700 focus:ring-primary-500';
       }
     },
     roundedClasses(): string {
