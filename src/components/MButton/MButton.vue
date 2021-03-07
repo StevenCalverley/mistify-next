@@ -56,7 +56,7 @@ export default defineComponent({
         case 'white':
           return 'border-gray-300 text-gray-700 bg-white hover:bg-gray-50 focus:ring-primary-500';
         default:
-          return 'text-primary-50 bg-primary-500 hover:bg-primary-700 focus:ring-primary-500';
+          return 'text-white bg-primary-500 hover:bg-primary-700 focus:ring-primary-500';
       }
     },
     roundedClasses(): string {
