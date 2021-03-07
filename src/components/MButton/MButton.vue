@@ -1,19 +1,44 @@
 <template>
   <button
     type="button"
-    class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+    class="inline-flex items-center font-medium border border-transparent rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+    :class="typeClasses"
     @click="$emit('click')"
   >
     <slot />
   </button>
 </template>
 
-<script>
+<script lang="ts">
 import { defineComponent } from 'vue';
 
 export default defineComponent({
   name: 'm-button',
   emits: ['click'],
+  props: {
+    type: {
+      type: String,
+      default: 'base',
+      validator: (type: string) =>
+        ['xs', 'sm', 'base', 'lg', 'xl'].includes(type),
+    },
+  },
+  computed: {
+    typeClasses(): string {
+      switch (this.type) {
+        case 'xs':
+          return 'px-2.5 py-1.5 text-xs';
+        case 'sm':
+          return 'px-3 py-2 text-sm leading-4';
+        case 'lg':
+          return 'px-4 py-2 text-base';
+        case 'xl':
+          return 'px-6 py-3 text-base';
+        default:
+          return 'px-4 py-2 text-sm';
+      }
+    },
+  },
 });
 </script>
 
