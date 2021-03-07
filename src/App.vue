@@ -1,5 +1,8 @@
 <template>
-  <HelloWorld msg="Hello Vue 3 + TypeScript + Vite" />
+  <div class="max-w-7xl mx-auto">
+    <HelloWorld msg="Hello Vue 3 + TypeScript + Vite" />
+    <m-button>Test</m-button>
+  </div>
 </template>
 
 <script lang="ts">
